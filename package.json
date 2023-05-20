@@ -25,7 +25,9 @@
 "easy-json-database": "^1.5.0",
 "discord-logs": "2.0.0",
 "os-utils": "0.0.14",
-"@frostzzone/discord-sync-commands": "0.3.0"
+"@frostzzone/discord-sync-commands": "0.3.0",
+"semver":"^1.0"
+                     
 
                             
                         },
