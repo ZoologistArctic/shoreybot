@@ -1,0 +1,269 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="s4d_login" id="tbKBGp+6n3877_({O0vj" x="545" y="145">
+    <value name="TOKEN">
+      <shadow type="text" id="M`WTo!4WB[r)pWdYmUwc">
+        <field name="TEXT">MTA5OTUwMDgzMzc2ODQ4MDg0OA.GXPRdX.TynpdMRy2ebehi64Q4V7WiQ7JpnRipMl6yaaig</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="logic_compare" id="WUR!UHf]v@SocMk}r5_O" disabled="true" x="1835" y="114">
+    <field name="OP">EQ</field>
+    <value name="A">
+      <block type="interaction_name" id="uQPr5AE!y4+.@a[FPV:2"></block>
+    </value>
+  </block>
+  <block type="frost_slash_register" id="{g2]H/C[aMi(aNsK2iz$" x="269" y="237">
+    <statement name="OPTIONS">
+      <block type="frost_slash_command" id="(vU6H!@U*2E#?7bUus#)">
+        <value name="NAME">
+          <shadow type="text" id="fMd=~QzvseK:t!V:F(w=">
+            <field name="TEXT">jail</field>
+          </shadow>
+        </value>
+        <value name="DESC">
+          <shadow type="text" id="h7w5axs%9FMs:?NO3Cvz">
+            <field name="TEXT">Jails a user. (Must be able to add roles)</field>
+          </shadow>
+        </value>
+        <statement name="OPTIONS">
+          <block type="gsa_frost_slash_options" id="QXmKJVHbZwS0f_uXwoRP">
+            <field name="TYPE">6</field>
+            <value name="NAME">
+              <shadow type="text" id="$K*(Q|GAP-4HxS49RHtM">
+                <field name="TEXT">Member</field>
+              </shadow>
+            </value>
+            <value name="DESC">
+              <shadow type="text" id="pc6Lux:Z/B*yuso$~KX,">
+                <field name="TEXT">Member to jail.</field>
+              </shadow>
+            </value>
+            <value name="REQUIRED">
+              <shadow type="logic_boolean" id="K-R+oq-6FbP-1H+RWn~b">
+                <field name="BOOL">TRUE</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="gsa_frost_slash_options" id="NdD1JWVApRwT2ZqYG8t.">
+                <field name="TYPE">4</field>
+                <value name="NAME">
+                  <shadow type="text" id="rCs)fmjF`LEi~}i-Sv;^">
+                    <field name="TEXT">Time</field>
+                  </shadow>
+                </value>
+                <value name="DESC">
+                  <shadow type="text" id="RC{=by]5I~xFhyXO1%WQ">
+                    <field name="TEXT">Time to jail for.</field>
+                  </shadow>
+                </value>
+                <value name="REQUIRED">
+                  <shadow type="logic_boolean" id="#M,!]~k|kN-G1C1B=QgO">
+                    <field name="BOOL">TRUE</field>
+                  </shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="jg_text_remake_paragraph_quotes" id="n?{qMgz_m~U7w``%LRSb" disabled="true" x="1886" y="172">
+    <field name="TEXT">jail</field>
+  </block>
+  <block type="on_slash" id="SpgwPf/m^eP2bfT-]if?" x="1289" y="233">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="=`r-hd*dO=ooM6FqY=z9">
+        <value name="IF0">
+          <block type="logic_compare" id="6,w.n?/*6Z26%~criDa:">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="interaction_name" id="3z~1$jSOog$c|j/8TRZ;"></block>
+            </value>
+            <value name="B">
+              <block type="jg_text_remake_paragraph_quotes" id="{s$[$M_`:M)Cjs8/(ih5">
+                <field name="TEXT">jail</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="mF{JJvP)vA^!;VAQl?q8">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="s4d_member_has_permission" id="RbL)bCLQ*U#i84VUOv76">
+                <field name="PERMISSION">MANAGE_ROLES</field>
+                <value name="MEMBER">
+                  <block type="interaction_author" id="@?cF9=Nv9XA?cUwx7;OO"></block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="s4d_add_role" id="/9Dc3KLpTp-Dp@q4Z`.O">
+                <value name="ROLE">
+                  <block type="s4d_get_role" id="6Gf;U^$fkJ@4JMHu{lUF">
+                    <field name="SEARCH_TYPE">ID</field>
+                    <value name="VALUE">
+                      <block type="jg_text_remake_paragraph_quotes" id="Qr,BLw(p=KN?t#UwX5zP">
+                        <field name="TEXT">1099497225014489088</field>
+                      </block>
+                    </value>
+                    <value name="SERVER">
+                      <block type="interaction_guild" id="o}~%)rJ-S/r)@zTn[{OM"></block>
+                    </value>
+                  </block>
+                </value>
+                <value name="MEMBER">
+                  <shadow type="s4d_message_member" id="CKtSfpiglXIbWHdsSN,t"></shadow>
+                  <block type="options" id="fi1+}LJlqZWtbU;VJbc^">
+                    <mutation mode="Member" type="null"></mutation>
+                    <field name="SEARCH">Member</field>
+                    <value name="BOOLEAN">
+                      <block type="jg_text_remake_paragraph_quotes" id="I_FbhuV=$2ntWrEo#KFF">
+                        <field name="TEXT">Member</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="slash_reply" id="kqxei9DUQK)sa%Nr:mK|">
+                    <value name="CONTENT">
+                      <block type="text_join" id="EhA4cn+U_DA(ht2t*wFJ">
+                        <mutation items="2"></mutation>
+                        <value name="ADD0">
+                          <block type="jg_text_remake_paragraph_quotes" id="w@#g7J_gIWq!Wkp/i~F}">
+                            <field name="TEXT">Jailed </field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="options" id="_~?kyy+@!!Em,orLFZR6">
+                            <mutation mode="Member" type="null"></mutation>
+                            <field name="SEARCH">Member</field>
+                            <value name="BOOLEAN">
+                              <block type="jg_text_remake_paragraph_quotes" id="DoEH3d~g_hxi{e3NWkny">
+                                <field name="TEXT">Member</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="BOOLEAN">
+                      <block type="logic_boolean" id="nUJY@{-uC:ifEc7,uV!o">
+                        <field name="BOOL">FALSE</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="s4d_wait_seconds" id="6%#Iv4R]wQAB)17^bYO*">
+                        <value name="TIME">
+                          <shadow type="math_number" id="%O_-)A.HK#QtVfjAXcJ6">
+                            <field name="NUM">2</field>
+                          </shadow>
+                          <block type="options" id="Ze(j3J!vdkDn/aFLYw[^">
+                            <mutation mode="Integer" type="null"></mutation>
+                            <field name="SEARCH">Integer</field>
+                            <value name="BOOLEAN">
+                              <block type="jg_text_remake_paragraph_quotes" id="Cp5[A9(GyHc_kKY^C^F[">
+                                <field name="TEXT">Time</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="s4d_remove_role" id="F]BjVdomxX7H~=~^CH^*">
+                            <value name="ROLE">
+                              <block type="s4d_get_role" id="K]4c|StA01RuAP#Pln}F">
+                                <field name="SEARCH_TYPE">ID</field>
+                                <value name="VALUE">
+                                  <block type="jg_text_remake_paragraph_quotes" id="LAV}TdnP*!s1~s47Eu=u">
+                                    <field name="TEXT">1099497225014489088</field>
+                                  </block>
+                                </value>
+                                <value name="SERVER">
+                                  <block type="interaction_guild" id="{D.:X]ZZk%_hS=2uHa{,"></block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="MEMBER">
+                              <shadow type="s4d_message_member" id="D;zb#t|0Gk*Fy?TliH1G"></shadow>
+                              <block type="options" id="mWYaay[%Y;hsWuK]@6R5">
+                                <mutation mode="Member" type="null"></mutation>
+                                <field name="SEARCH">Member</field>
+                                <value name="BOOLEAN">
+                                  <block type="jg_text_remake_paragraph_quotes" id="$]wA?5,y=pm9M)V8mSrx">
+                                    <field name="TEXT">Member</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="s4d_send_channel" id="uk.VfHq^?8W{1N3LTh~/">
+                                <value name="CONTENT">
+                                  <block type="text_join" id="y}H7XPS^zx6:?qqy)~nt">
+                                    <mutation items="2"></mutation>
+                                    <value name="ADD0">
+                                      <block type="jg_text_remake_paragraph_quotes" id="LiOV)?lBW4e/Tp4G|#4n">
+                                        <field name="TEXT">Unjailed </field>
+                                      </block>
+                                    </value>
+                                    <value name="ADD1">
+                                      <block type="options" id="_GMFJnFA8W7Cp]%0gNS{">
+                                        <mutation mode="Member" type="null"></mutation>
+                                        <field name="SEARCH">Member</field>
+                                        <value name="BOOLEAN">
+                                          <block type="jg_text_remake_paragraph_quotes" id="F`Ub.XI^[=pGQ/awJeE{">
+                                            <field name="TEXT">Member</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="CHANNEL">
+                                  <block type="interaction_channel" id="r?:5,TdCu[7,-A[Lu6=W"></block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="slash_reply" id="-QNHM)ixTBSUrjo1XjwV">
+                <value name="CONTENT">
+                  <block type="jg_text_remake_paragraph_quotes" id="QaA8Axtt]kql2~x2pwn/">
+                    <field name="TEXT">You do not have permission to run this command.</field>
+                  </block>
+                </value>
+                <value name="BOOLEAN">
+                  <block type="logic_boolean" id="kUo*IbYI-Y1%D,U_gE@.">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="slash_reply" id="}Un0!~pDfgvaS=gR}4ix" disabled="true" x="2058" y="582">
+    <value name="BOOLEAN">
+      <block type="logic_boolean" id="R?n.i%j7^Unwp8r9.HH]">
+        <field name="BOOL">FALSE</field>
+      </block>
+    </value>
+  </block>
+  <block type="interaction_author" id="Wx^)!X^HAX-T5urE~r_i" disabled="true" x="1591" y="667"></block>
+  <block type="text_join" id="2.hta_ee_!m*=MZVlHQ@" disabled="true" x="2191" y="826">
+    <mutation items="2"></mutation>
+    <value name="ADD1">
+      <block type="interaction_author" id="ppq[qKv:qw`6hOKJJ+zb"></block>
+    </value>
+  </block>
+  <block type="interaction_author" id="ooU1|HA:CK2F?^TCM,H7" disabled="true" x="1495" y="1108"></block>
+</xml>
